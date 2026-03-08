@@ -1,0 +1,333 @@
+/* ================================
+   style.css - Single Page Scroll
+   Simpan di: public/css/style.css
+   ================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Smooth scroll saat klik menu */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0e0e0e;
+    color: #e0e0e0;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    position: fixed;           /* Tetap di atas saat scroll */
+    top: 0; left: 0; right: 0;
+    background: rgba(14,14,14,0.97);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    border-bottom: 1px solid #1f1f1f;
+    z-index: 999;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #c9a84c;
+    letter-spacing: 1px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;  /* Garis bawah transparan dulu */
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.menu a:hover,
+.menu a.aktif {
+    color: #c9a84c;
+    border-bottom: 2px solid #c9a84c;     /* Garis bawah gold saat aktif */
+}
+
+/* ===== SECTION UMUM ===== */
+/* Semua section punya padding atas supaya tidak ketutup navbar */
+section {
+    padding: 100px 40px 80px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Section gelap (untuk porto) */
+.section-gelap {
+    max-width: 100%;
+    background: #111;
+    padding: 80px 40px;
+    border-top: 1px solid #1f1f1f;
+    border-bottom: 1px solid #1f1f1f;
+}
+.section-gelap h2 {
+    max-width: 850px;
+    margin: 0 auto 30px;
+}
+
+/* Judul section */
+.section h2,
+.section-gelap h2 {
+    font-size: 26px;
+    color: #c9a84c;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1f1f1f;
+    letter-spacing: 1px;
+}
+
+.section h3 {
+    font-size: 18px;
+    color: #c9a84c;
+    margin-bottom: 10px;
+}
+
+.section p {
+    font-size: 15px;
+    color: #777;
+    line-height: 1.9;
+    margin-bottom: 5px;
+}
+
+.section strong { color: #c9a84c; }
+
+/* ===== HERO / PROFILE SECTION ===== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 80px;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+/* Lingkaran dekorasi */
+.lingkaran {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+.lingkaran1 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, #c9a84c18, transparent);
+    top: 0; left: -80px;
+}
+.lingkaran2 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, #c9a84c10, transparent);
+    bottom: 60px; right: -50px;
+}
+
+/* Foto profil */
+.foto-wrapper {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 28px;
+}
+.foto-wrapper img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #c9a84c;
+    box-shadow: 0 0 30px rgba(201,168,76,0.2);
+    animation: munculAtas 0.8s ease;
+}
+
+/* Teks hero */
+.hero-teks { position: relative; z-index: 1; }
+
+.hero-teks h1 {
+    font-size: 38px;
+    font-weight: bold;
+    color: #f0f0f0;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    animation: munculBawah 0.8s ease 0.2s both;
+}
+.nama { color: #c9a84c; }
+
+.mengetik {
+    font-size: 17px;
+    color: #666;
+    margin-bottom: 22px;
+    min-height: 28px;
+    letter-spacing: 0.5px;
+    animation: munculBawah 0.8s ease 0.4s both;
+}
+
+/* Kursor berkedip */
+.kursor {
+    color: #c9a84c;
+    animation: kedip 0.7s step-end infinite;
+}
+@keyframes kedip { 50% { opacity: 0; } }
+
+/* Badge */
+.badge-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+    animation: munculBawah 0.8s ease 0.6s both;
+}
+.badge {
+    background: transparent;
+    border: 1px solid #2a2a2a;
+    color: #888;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    transition: border-color 0.3s, color 0.3s;
+}
+.badge:hover { border-color: #c9a84c; color: #c9a84c; }
+
+/* Tombol */
+.tombol {
+    display: inline-block;
+    background: #c9a84c;
+    color: #0e0e0e;
+    padding: 13px 32px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: background 0.3s, transform 0.3s;
+    animation: munculBawah 0.8s ease 0.8s both;
+}
+.tombol:hover {
+    background: #e0bc6a;
+    transform: translateY(-2px);
+}
+
+/* ===== SKILL LIST ===== */
+.skill-list {
+    padding-left: 20px;
+    margin-top: 8px;
+}
+.skill-list li {
+    color: #777;
+    font-size: 15px;
+    line-height: 2.2;
+}
+.skill-list li::marker { color: #c9a84c; }
+
+/* ===== PORTO GRID ===== */
+.porto-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.porto-card {
+    background: #1a1a1a;
+    border: 1px solid #222;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 260px;
+    transition: border-color 0.3s, transform 0.3s;
+}
+.porto-card:hover {
+    border-color: #c9a84c;
+    transform: translateY(-4px);
+}
+.porto-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    background: #222;
+}
+.porto-card h3 {
+    font-size: 15px;
+    color: #e0e0e0;
+    padding: 12px 15px 5px;
+}
+.porto-card p {
+    font-size: 13px;
+    color: #666;
+    padding: 0 15px 15px;
+    line-height: 1.6;
+}
+
+/* ===== FORM CONTACT ===== */
+.section form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+.section input,
+.section textarea {
+    padding: 12px 16px;
+    border: 1px solid #222;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    background: #141414;
+    color: #e0e0e0;
+    transition: border-color 0.3s;
+}
+.section input::placeholder,
+.section textarea::placeholder { color: #444; }
+.section input:focus,
+.section textarea:focus { border-color: #c9a84c; }
+.section textarea { resize: none; }
+.section button {
+    background: #c9a84c;
+    color: #0e0e0e;
+    border: none;
+    padding: 13px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.section button:hover { background: #e0bc6a; }
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #444;
+    font-size: 13px;
+    border-top: 1px solid #1a1a1a;
+    letter-spacing: 0.5px;
+}
+
+/* ===== ANIMASI ===== */
+@keyframes munculAtas {
+    from { opacity: 0; transform: translateY(-30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes munculBawah {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
